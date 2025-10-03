@@ -102,20 +102,21 @@
     <p>Cadastre-se rapidinho no nosso super blog!</p> 
     <form id="formularioInscricao" method="post" **onsubmit="simularInscricao(event)"**>
         <div id="camposFormulario">
-            <label for="nome">Nome Completo (Obrigatório!):</label><br> 
+            <label for="nome">Nome Completo:</label><br> 
             <input type="text" id="nome" name="nome" required placeholder="Seu nome aqui"><br><br>
             <label for="email">E-mail:</label><br>
             <input type="email" id="email" name="email" required placeholder="email@exemplo.com"><br>
             <hr style="border: 0.5px solid #555; width: 50%;"> <br>
-            <label for="telefone">Telefone (opcional):</label><br>
+            <label for="telefone">Telefone:</label><br>
             <input type="tel" id="telefone" name="telefone" required><br><br> 
-            <label for="senha">Crie uma Senha Secreta:</label><br>
+            <label for="senha">Crie uma Senha:</label><br>
             <input type="password" id="senha" name="senha" required><br><br>
             <input type="submit" value="Me Inscrever Agora!">
         </div>
         <div id="mensagemSucesso">
-            **Inscrição realizada com sucesso!** <br>Seja bem-vindo(a) ao nosso blog!
+            <p>**Inscrição realizada com sucesso!** </p><br><p>Seja bem-vindo(a) ao nosso blog!</p>
         </div>
     </form>
 </body>
 </html>
+
