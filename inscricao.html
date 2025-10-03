@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Inscrição para o Blog!</title>
+    <title>Inscrição</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -24,14 +24,14 @@
             background-color: rgba(255, 255, 255, 0.1); 
             border-radius: 10px;
             position: relative; 
-        }       
+        } 
         input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
             width: 100%;
             padding: 8px;
             box-sizing: border-box; 
             border: 1px solid #ccc;
             border-radius: 4px;
-        }       
+        }
         input[type="submit"] {
             background-color: #ffffff; 
             color: black;
@@ -42,13 +42,8 @@
             font-weight: bold;
             font-size: 17px;
         } 
-        #mensagemSucesso {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff; 
-            padding: 40px 20px;
-            display: none; 
-            text-align: center;
+        #mensagem-sucesso {
+            display: none;
         }
         @media screen and (max-width: 768px) {
             body { flex-direction: column; min-height: 100vh; }
@@ -86,37 +81,35 @@
             #main-content .passagem { padding: 10px; font-size: 13px; }
         }
     </style>
-    <script>
-        function simularInscricao(event) {
-            event.preventDefault(); 
-            const campos = document.getElementById('camposFormulario');
-            const mensagem = document.getElementById('mensagemSucesso');
-            campos.style.display = 'none'; 
-            mensagem.style.display = 'block';
-            return false; 
-        }
-    </script>
 </head>
-<body> 
-    <h1> Inscreva-se para Receber Novidades! </h1>
-    <p>Cadastre-se rapidinho no nosso super blog!</p> 
-    <form id="formularioInscricao" method="post" **onsubmit="simularInscricao(event)"**>
-        <div id="camposFormulario">
-            <label for="nome">Nome Completo:</label><br> 
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome aqui"><br><br>
-            <label for="email">E-mail:</label><br>
-            <input type="email" id="email" name="email" required placeholder="email@exemplo.com"><br>
-            <hr style="border: 0.5px solid #555; width: 50%;"> <br>
-            <label for="telefone">Telefone:</label><br>
-            <input type="tel" id="telefone" name="telefone" required><br><br> 
-            <label for="senha">Crie uma Senha:</label><br>
-            <input type="password" id="senha" name="senha" required><br><br>
-            <input type="submit" value="Me Inscrever Agora!">
-        </div>
-        <div id="mensagemSucesso">
-            <p>**Inscrição realizada com sucesso!** </p><br><p>Seja bem-vindo(a) ao nosso blog!</p>
-        </div>
+<body>
+    <h1>Inscreva-se para Receber Novidades!</h1>
+    <form id="formInscricao" action="/submit-form" method="post">
+        <label for="nome">Nome Completo:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="telefone">Telefone:</label><br>
+        <input type="tel" id="telefone" name="telefone" required><br><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <input type="submit" value="Inscrever-se">
     </form>
+    <p id="mensagem-sucesso" style="font-size: 1.2em; color: rgb(241, 241, 241); margin-top: 20px;">
+        <strong>Inscrição feita com sucesso!</strong> 
+    </p>
+    <script>
+        const form = document.getElementById('formInscricao');
+        const sucesso = document.getElementById('mensagem-sucesso');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            form.style.display = 'none';
+            sucesso.style.display = 'block';
+        });
+    </script>
 </body>
 </html>
-
