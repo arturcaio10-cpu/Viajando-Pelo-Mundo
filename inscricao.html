@@ -45,9 +45,9 @@
         #mensagemSucesso {
             font-size: 24px;
             font-weight: bold;
-            color: #4CAF50; /* Verde de sucesso */
+            color: #ffffff; 
             padding: 40px 20px;
-            display: none; /* ESSENCIAL: Começa invisível */
+            display: none; 
             text-align: center;
         }
         @media screen and (max-width: 768px) {
@@ -92,8 +92,8 @@
             const campos = document.getElementById('camposFormulario');
             const mensagem = document.getElementById('mensagemSucesso');
             campos.style.display = 'none'; 
-            mensagem.style.display = 'block'; 
-            return false; // Retorna false para garantir que a submissão seja abortada
+            mensagem.style.display = 'block';
+            return false; 
         }
     </script>
 </head>
@@ -119,4 +119,3 @@
     </form>
 </body>
 </html>
-
