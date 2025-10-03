@@ -4,7 +4,7 @@
     <title>Inscrição para o Blog!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* ... Seu CSS EXISTENTE (não mudei nada aqui para manter o visual) ... */
+        /* CSS EXISTENTE */
         body {
             background-image: url("fundo.jpg");
             background-repeat: no-repeat;
@@ -24,7 +24,6 @@
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.1); 
             border-radius: 10px;
-            /* Adicionei 'position: relative' para ajudar a centralizar a mensagem, se for o caso, mas o display:none já ajuda. */
             position: relative; 
         }       
         input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
@@ -44,185 +43,80 @@
             font-weight: bold;
             font-size: 17px;
         } 
-        
-        /* NOVO CSS: Estilo para a mensagem de sucesso */
+
+        /* CSS DA MENSAGEM DE SUCESSO */
         #mensagemSucesso {
-            /* Deixa a mensagem bem visível e alinhada ao visual */
             font-size: 24px;
             font-weight: bold;
-            color: #4CAF50; /* Um verde forte */
+            color: #4CAF50; /* Verde de sucesso */
             padding: 40px 20px;
-            display: none; /* Inicialmente invisível */
+            display: none; /* ESSENCIAL: Começa invisível */
+            text-align: center;
         }
-        
-        /* ... Seu CSS EXISTENTE para Media Queries ... */
+
+        /* ... Seus Media Queries ... */
         @media screen and (max-width: 768px) {
-            /* ... estilos existentes ... */
-            body {
-                flex-direction: column;
-                min-height: 100vh;
-            }
-            
-            .menu-container {
-                width: 100%;
-                padding: 15px;
-                background-color: rgba(0, 0, 0, 0.8);
-                position: relative;
-                z-index: 1000;
-            }
-            
-            .menu-container img {
-                max-width: 120px;
-                height: auto;
-            }
-            
-            .menu-container h3 {
-                font-size: 18px;
-                margin-top: 10px;
-            }
-            
-            .menu-container ul {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 5px;
-                margin-top: 15px;
-            }
-            
-            .menu-container li {
-                flex: 1;
-                min-width: 120px;
-            }
-            
-            .menu-container li a {
-                padding: 8px 12px;
-                font-size: 14px;
-                text-align: center;
-                border-radius: 5px;
-                border-bottom: none;
-                background-color: rgba(255, 255, 255, 0.1);
-            }
-            
-            .menu-container li a:hover {
-                background-color: rgba(255, 255, 255, 0.2);
-            }
-            
-            .main-content {
-                width: 100%;
-                padding: 15px;
-                min-height: calc(100vh - 200px);
-            }
-            
-            .video-container {
-                max-width: 100%;
-                margin: 15px 0;
-            }
-            
-            .responsive-img {
-                max-width: 100%;
-                margin: 15px 0;
-            }
-            
-            #main-content form {
-                max-width: 100%;
-                margin: 20px 0;
-                padding: 15px;
-            }
-            
+            body { flex-direction: column; min-height: 100vh; }
+            .menu-container { width: 100%; padding: 15px; background-color: rgba(0, 0, 0, 0.8); position: relative; z-index: 1000; }
+            .menu-container img { max-width: 120px; height: auto; }
+            .menu-container h3 { font-size: 18px; margin-top: 10px; }
+            .menu-container ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin-top: 15px; }
+            .menu-container li { flex: 1; min-width: 120px; }
+            .menu-container li a { padding: 8px 12px; font-size: 14px; text-align: center; border-radius: 5px; border-bottom: none; background-color: rgba(255, 255, 255, 0.1); }
+            .menu-container li a:hover { background-color: rgba(255, 255, 255, 0.2); }
+            .main-content { width: 100%; padding: 15px; min-height: calc(100vh - 200px); }
+            .video-container { max-width: 100%; margin: 15px 0; }
+            .responsive-img { max-width: 100%; margin: 15px 0; }
+            #main-content form { max-width: 100%; margin: 20px 0; padding: 15px; }
             #main-content input[type="text"], 
-            #main-content input[type="date"] {
-                width: 100%;
-                padding: 12px;
-                font-size: 16px;
-                margin-bottom: 10px;
-            }
-            
-            #main-content button {
-                width: 100%;
-                padding: 15px;
-                font-size: 18px;
-                margin-top: 10px;
-            }
-            
-            #main-content #resultados {
-                max-width: 100%;
-                margin: 20px 0;
-            }
-            
-            #main-content .passagem {
-                padding: 12px;
-                margin-bottom: 12px;
-                font-size: 14px;
-            }
-            
-            #main-content .carregando {
-                font-size: 16px;
-                text-align: center;
-            }
+            #main-content input[type="date"] { width: 100%; padding: 12px; font-size: 16px; margin-bottom: 10px; }
+            #main-content button { width: 100%; padding: 15px; font-size: 18px; margin-top: 10px; }
+            #main-content #resultados { max-width: 100%; margin: 20px 0; }
+            #main-content .passagem { padding: 12px; margin-bottom: 12px; font-size: 14px; }
+            #main-content .carregando { font-size: 16px; text-align: center; }
         }
         
         @media screen and (max-width: 480px) {
-            .menu-container {
-                padding: 10px;
-            }
-            
-            .menu-container img {
-                max-width: 100px;
-            }
-            
-            .menu-container h3 {
-                font-size: 16px;
-            }
-            
-            .menu-container ul {
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .menu-container li {
-                min-width: auto;
-            }
-            
-            .menu-container li a {
-                padding: 10px;
-                font-size: 13px;
-            }
-            
-            .menu-container li a:hover {
-                background-color: rgba(255, 255, 255, 0.2);
-            }
-            
-            .main-content {
-                padding: 10px;
-            }
-            
-            #main-content form {
-                padding: 10px;
-            }
-            
+            .menu-container { padding: 10px; }
+            .menu-container img { max-width: 100px; }
+            .menu-container h3 { font-size: 16px; }
+            .menu-container ul { flex-direction: column; gap: 8px; }
+            .menu-container li { min-width: auto; }
+            .menu-container li a { padding: 10px; font-size: 13px; }
+            .menu-container li a:hover { background-color: rgba(255, 255, 255, 0.2); }
+            .main-content { padding: 10px; }
+            #main-content form { padding: 10px; }
             #main-content input[type="text"], 
-            #main-content input[type="date"] {
-                padding: 10px;
-                font-size: 14px;
-            }
-            
-            #main-content button {
-                padding: 12px;
-                font-size: 16px;
-            }
-            
-            #main-content .passagem {
-                padding: 10px;
-                font-size: 13px;
-            }
+            #main-content input[type="date"] { padding: 10px; font-size: 14px; }
+            #main-content button { padding: 12px; font-size: 16px; }
+            #main-content .passagem { padding: 10px; font-size: 13px; }
         }
     </style>
+    
+    <script>
+        function simularInscricao(event) {
+            // ESSENCIAL: Impede o envio real do formulário
+            event.preventDefault(); 
+            
+            // Pega os elementos necessários
+            const campos = document.getElementById('camposFormulario');
+            const mensagem = document.getElementById('mensagemSucesso');
+            
+            // Oculta a área de campos
+            campos.style.display = 'none'; 
+            
+            // Exibe a mensagem de sucesso no mesmo container do formulário
+            mensagem.style.display = 'block'; 
+
+            return false; // Retorna false para garantir que a submissão seja abortada
+        }
+    </script>
 </head>
 <body> 
     <h1> Inscreva-se para Receber Novidades! </h1>
     <p>Cadastre-se rapidinho no nosso super blog!</p> 
     
-    <form id="formularioInscricao" action="/submit-form" method="post">
+    <form id="formularioInscricao" method="post" **onsubmit="simularInscricao(event)"**>
         
         <div id="camposFormulario">
             <label for="nome">Nome Completo (Obrigatório!):</label><br> 
@@ -238,39 +132,9 @@
         </div>
         
         <div id="mensagemSucesso">
-            ✅ Inscrição realizada com sucesso! <br>Bem-vindo(a) ao nosso blog!
+            ✅ **Inscrição realizada com sucesso!** <br>Seja bem-vindo(a) ao nosso blog!
         </div>
         
     </form>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Pega o formulário, os campos (container) e a mensagem de sucesso
-            const form = document.getElementById('formularioInscricao');
-            const campos = document.getElementById('camposFormulario');
-            const mensagem = document.getElementById('mensagemSucesso');
-
-            form.addEventListener('submit', function(event) {
-                // ESSENCIAL: Impede o envio padrão que recarregaria a página
-                event.preventDefault(); 
-                
-                // --- SIMULAÇÃO de Envio para o Servidor ---
-                
-                // Aqui você faria uma chamada AJAX (fetch ou XMLHttpRequest) real
-                // para enviar os dados para o seu servidor.
-                
-                // Se o servidor retornar sucesso, execute o código abaixo:
-                
-                // Oculta os campos do formulário
-                campos.style.display = 'none'; 
-                
-                // Exibe a mensagem de sucesso
-                mensagem.style.display = 'block'; 
-
-                // OPCIONAL: Remove o 'action' do formulário para garantir que ele não envie mais nada
-                form.removeAttribute('action');
-            });
-        });
-    </script>
 </body>
 </html>
